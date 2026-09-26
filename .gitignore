@@ -1,2 +1,3 @@
-## caches
+## caches and local settings
 */__pycache__
+.vscode
