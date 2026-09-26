@@ -8,8 +8,7 @@ def findDevice(name: str):
         if device.name==name:
             print(u"Device Found {}".format(device.name))
             return device
-        else:
-            return None
+        return None
 
 # Takes the device from findDevice and returns the barcode as a string (delinated through an extra space provided by the scanner input)
 def readCode(dev:evdev.InputDevice) -> str:
@@ -47,6 +46,7 @@ def outputCode(addr:str,port:int,code:str):
      with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
         try:
             s.connect((HOST,PORT))
+            s.send(message)
         except Exception as inst:
              print(u"An error occured: {}".format(inst))
 
