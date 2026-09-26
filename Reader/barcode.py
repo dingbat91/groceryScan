@@ -46,7 +46,7 @@ def outputCode(addr:str,port:int,code:str):
      with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
         try:
             s.connect((HOST,PORT))
-            s.send(message)
+            s.sendall(message.encode('utf-8'))
         except Exception as inst:
              print(u"An error occured: {}".format(inst))
 
@@ -58,8 +58,9 @@ if __name__ == "__main__":
         if dev != None:
             try:
                 code=readCode(dev)
+                outputCode("192.168.1.94",3225,code)
             except Exception as inst:
                 print(u"Something went wrong: {}".format(inst))
-            outputCode("192.168.1.84",3225,code)
+            
 
 

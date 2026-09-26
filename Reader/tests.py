@@ -14,7 +14,7 @@ class TestNetworkClient(unittest.TestCase):
         outputCode(test_host,test_port,test_code)
 
         socketInstance.connect.assert_called_once_with((test_host,test_port))
-        socketInstance.send.assert_called_once_with(123456)
+        socketInstance.sendall.assert_called_once_with(123456)
 
 if __name__ == "__main__":
     unittest.main(verbosity=2)
